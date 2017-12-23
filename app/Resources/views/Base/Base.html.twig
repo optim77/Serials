@@ -3,8 +3,113 @@
 <head>
     <title>Page</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ asset('bundles/serials/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/serials/css/res.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="{{ asset('bundles/serials/js/viewscripts.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
 </head>
 <body>
+    <!-- NAV BAR -->
+    {% block navbar %}
+
+
+        <div class="container-fluid bg-dark">
+            <div class="container">
+                <nav class="navbar navbar-light navbar-collapse navbar-expand-sm">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <div class="navbar-nav">
+                            <a class="navbar-brand text-white text-uppercase h1" href="">Series</a>
+                            <a class="nav-item nav-link mx-2 text-white px-3 hv" href="index.html">Home</a>
+                            <a class="nav-item nav-link mx-2 text-white px-3 hv" href="index.html">News</a>
+                            <a class="nav-item nav-link mx-2 text-white px-3 hv" href="pages/shop.html">Series list</a>
+                            <a class="nav-item nav-link mx-2 text-white px-3 hv" href="pages/contact.html">Top series</a>
+                            <a class="nav-item nav-link btn btn-danger h1 mx-3" href="">Sing up</a>
+                            <a class="nav-item nav-link btn btn-info h2" href="">Sing in</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}
+
+    <!-- TOP SLIDER -->
+    {% block hero %}
+    <div class="container pt-5">
+        <div id="slide" class="slide carousel" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="jumbotron-fluid img-fluid hero rounded p-5" style="background-image: url('http://daxushequ.com/data/out/40/img60606374.jpg')">
+
+                        <div class="text-center display-1 text-white">
+                            The biggest base knowledge about series
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="jumbotron-fluid img-fluid hero rounded p-5" style=";background-image: url('https://i.pinimg.com/originals/07/d7/b2/07d7b2d6ad7071cb82da2f0f3c6fbac9.jpg')">
+
+                        <div class="text-center display-1 text-white ">
+                            Every news about series and films
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+
+        <!-- CONTENT BLOCK -->
+    {% block content %}
+        <div class="container pt-5">
+            <hr>
+            <span class="h3">News</span>
+            <div class="card-group">
+                <div class="card w-25">
+                    <img class="img-fluid card-img-top" src="http://cdn-static.denofgeek.com/sites/denofgeek/files/2017/10/hannibal.jpg">
+                    <span class="card-title text-center h3 p-1">Title</span>
+                    <span class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut aliquet lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </span>
+                </div>
+
+                <div class="card w-25">
+                    <img class="img-fluid card-img-top" src="http://cdn-static.denofgeek.com/sites/denofgeek/files/2017/10/hannibal.jpg">
+                    <span class="card-title text-center h3 p-1">Title</span>
+                    <span class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut aliquet lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </span>
+                </div>
+
+                <div class="card w-25">
+                    <img class="img-fluid card-img-top" src="http://cdn-static.denofgeek.com/sites/denofgeek/files/2017/10/hannibal.jpg">
+                    <span class="card-title text-center h3 p-1">Title</span>
+                    <span class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut aliquet lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </span>
+                </div>
+            </div>
+
+        </div>
+    {% endblock %}
+
+
+    {% block footer %}
+        <div class="pt-5"></div>
+        <div class="container-fluid bg-dark p-4 text-center">
+            <span class="text-white text-center">All rights reserved 2017 &copy; Series</span>
+        </div>
+
+    {% endblock %}
 
 </body>
 </html>
