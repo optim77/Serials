@@ -1,0 +1,12 @@
+{% extends "Base/Base.html.twig" %}
+{% form_theme form "Forms/styleForms.html.twig" %}
+{% block hero %}{% endblock %}
+
+{% block content %}
+    <div class="container p-5">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
