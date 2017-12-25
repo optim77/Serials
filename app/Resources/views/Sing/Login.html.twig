@@ -3,10 +3,27 @@
 {% block hero %}{% endblock %}
 
 {% block content %}
-    <div class="container p-5">
+    {% if type == 'login' %}
 
+    <div class="container p-5">
+        <div class="display-4 p-5 text-center">Log in</div>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
+    {% endif %}
+
+    {% if type == 'reg' %}
+
+        <div class="container p-5">
+            <div class="display-4 p-5 text-center">Sing in</div>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+
+    {% endif %}
+
+    {% block footer %}{% endblock %}
+
 {% endblock %}

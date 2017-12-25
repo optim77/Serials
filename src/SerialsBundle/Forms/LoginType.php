@@ -8,7 +8,9 @@
 
 namespace SerialsBundle\Forms;
 
+use SerialsBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -35,14 +37,19 @@ class LoginType extends AbstractType
             ->add('_password',PasswordType::class,array(
                 'label' => 'Password'
             ))
+            ->add('_remember_me',CheckboxType::class,array(
+                'label' => 'Remember me',
+                'required' => false
+            ))
             ->add('submit',SubmitType::class,array(
-                'label' => 'Submit'
+                'label' => 'Log in'
             ));
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-
+    public function setDefaultOptions(OptionsResolver $resolver){
+        $resolver->setDefaults(array(
+            'data_class' => User::class
+        ));
     }
 
 

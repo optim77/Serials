@@ -1,13 +1,14 @@
 <?php
-namespace SerialsBundle\Entity;
 
+
+namespace SerialsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="SerialsBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="SerialsBundle\Repository\UsersRepository")
  * @UniqueEntity(fields={"email"})
  * @UniqueEntity(fields={"username"})
  * @ORM\HasLifecycleCallbacks
