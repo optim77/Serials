@@ -8,9 +8,12 @@
 
 namespace SerialsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Imagine\Imagick\Imagine;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Imagine\Gd\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /**
  * @ORM\Table(name="series")
@@ -460,9 +463,101 @@ class Series
     public function preSave(){
 
         if (null !== $this->getMainImage()){
-
+            if (null !== $this->mainImage){
+                $this->mainTmp = $this->mainImage;
+            }
+            $imageName = sha1(uniqid(null,true));
+            $this->mainImage = $imageName.'.'.$this->getMainImage()->guessExtension();
         }
 
+        if (null !== $this->getSecondImage()){
+            if (null !== $this->secondImage){
+                $this->secondTmp = $this->secondImage;
+            }
+            $imageName = sha1(uniqid(null,true));
+            $this->secondImage = $imageName.'.'.$this->getSecondImage()->guessExtension();
+        }
+
+        if (null !== $this->getThirdImage()){
+            if (null !== $this->thirdImage){
+                $this->thirdTmp = $this->thirdImage;
+            }
+            $imageName = sha1(uniqid(null,true));
+            $this->thirdImage = $imageName.'.'.$this->getThirdImage()->guessExtension();
+        }
+
+        if (null !== $this->getFourthImage()){
+            if (null !== $this->fourthImage){
+                $this->fourthTmp = $this->fourthImage;
+            }
+            $imageName = sha1(uniqid(null,true));
+            $this->fourthImage = $imageName.'.'.$this->getFourthImage()->guessExtension();
+        }
+
+        if (null !== $this->getFiveImage()){
+            if (null !== $this->fiveImage){
+                $this->fiveTmp = $this->fiveImage;
+            }
+            $imageName = sha1(uniqid(null,true));
+            $this->fiveImage = $imageName.'.'.$this->getFiveImage()->guessExtension();
+        }
+
+    }
+
+    /**
+     * @ORM\PostPersist
+     * @ORM\PostUpdate
+     */
+    public function postSave(){
+        if(null !== $this->getMainImage()){
+            $this->getMainImage()->move($this->getUploadRootDir(),$this->mainImage);
+            unset($this->mainImage);
+
+            if (null !==  $this->mainTmp){
+                unlink($this->getUploadRootDir().$this->mainTmp);
+                unset($this->mainTmp);
+            }
+        }
+
+        if(null !== $this->getSecondImage()){
+            $this->getSecondImage()->move($this->getUploadRootDir(),$this->secondImage);
+            unset($this->secondImage);
+
+            if (null !==  $this->secondTmp){
+                unlink($this->getUploadRootDir().$this->secondTmp);
+                unset($this->secondTmp);
+            }
+        }
+
+        if(null !== $this->getThirdImage()){
+            $this->getThirdImage()->move($this->getUploadRootDir(),$this->thirdImage);
+            unset($this->thirdImage);
+
+            if (null !==  $this->thirdTmp){
+                unlink($this->getUploadRootDir().$this->thirdTmp);
+                unset($this->thirdTmp);
+            }
+        }
+
+        if(null !== $this->getFourthImage()){
+            $this->getFourthImage()->move($this->getUploadRootDir(),$this->fourthImage);
+            unset($this->fourthTmp);
+
+            if (null !==  $this->fourthTmp){
+                unlink($this->getUploadRootDir().$this->fourthTmp);
+                unset($this->fourthTmp);
+            }
+        }
+
+        if(null !== $this->getFiveImage()){
+            $this->getFiveImage()->move($this->getUploadRootDir(),$this->fiveImage);
+            unset($this->fiveTmp);
+
+            if (null !==  $this->fiveImage){
+                unlink($this->getUploadRootDir().$this->fiveTmp);
+                unset($this->fiveTmp);
+            }
+        }
     }
 
     protected function getUploadRootDir(){
